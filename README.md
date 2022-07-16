@@ -1,2 +1,7 @@
 # pms
-プロジェクト管理システム
+プロジェクト管理サービス
+
+# システム構成
+Front: React
+Server: Spring Boot Kotlin
+Infra: AWS

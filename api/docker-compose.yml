@@ -1,0 +1,40 @@
+version: '3.2'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pms
+      MYSQL_USER: pms
+      MYSQL_PASSWORD: pms
+    volumes:
+      - type: volume
+        source: pms
+        target: /usr/local/bin/mysql
+    ports:
+      - 3306:3306
+
+  elasticsearch:
+    build: es/
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - 9200:9200
+    volumes:
+      - type: volume
+        source: pms_es
+        target: /usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.8.1
+    ports:
+      - 5601:5601
+    volumes:
+      - type: volume
+        source: pms_es
+        target: /usr/share/elasticsearch/data
+
+volumes:
+  pms:
+  pms_es:

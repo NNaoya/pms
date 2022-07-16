@@ -1,0 +1,9 @@
+.idea
+infra/terraform_aws_ecs/terraform.tfvars
+infra/terraform_aws_ecs/.terraform
+infra/terraform_aws_ecs/.terraform.lock.hcl
+infra/terraform_aws_ecs/.terraform.tfstate.lock.info
+infra/terraform_aws_ecs/terraform.tfstate
+infra/terraform_aws_eks_setup/terraform.tfvars
+infra/terraform_aws_eks_setup/.terraform
+infra/terraform_aws_eks_setup/.terraform.lock.hcl

@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+
+  .menu {
+    width: 200px;
+    height: calc(100vh - 64px);
+  }
+
+  .content {
+    width: calc(100% - 200px);
+  }
+
+  .link {
+    display: flex;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
