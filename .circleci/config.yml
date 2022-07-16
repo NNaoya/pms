@@ -48,7 +48,9 @@ jobs:
           command: cd api
       - run:
           name: Run API tests
-          command: TZ=Asia/Tokyo JAVA_HOME=<< pipeline.parameters.java-home >>/jdk-16 ./gradlew test --info
+          command: |
+            cd api;
+            TZ=Asia/Tokyo JAVA_HOME=<< pipeline.parameters.java-home >>/jdk-16 ./gradlew test --info;
           no_output_timeout: 30m
       - run:
           name: Creating Dummy Artifacts
