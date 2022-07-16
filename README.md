@@ -2,6 +2,6 @@
 プロジェクト管理サービス
 
 # システム構成
-Front: React
-Server: Spring Boot Kotlin
-Infra: AWS
+- Front: React
+- Server: Spring Boot Kotlin
+- Infra: AWS
