@@ -5,3 +5,4 @@
 - Front: React
 - Server: Spring Boot Kotlin
 - Infra: AWS
+- CI/CD: CircleCI

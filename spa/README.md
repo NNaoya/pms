@@ -7,4 +7,6 @@
 # 使用技術
 
 - React
+- TypeScript
+- StoryBook
 - ci
