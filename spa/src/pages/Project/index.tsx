@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProjectList from '../../components/templates/Project';
-import {json} from "stream/consumers";
+import { getApi } from '../../hooks/hooks';
 
 interface ProjectData {
   id: string;
@@ -20,30 +20,19 @@ interface Member {
 }
 
 const Project: React.VFC = () => {
-  // TODO: API結合
-  const [projects, setProjects] = useState<Array<ProjectData>>([]);
   const [total, setTotal] = useState<number>(0);
-
-  useEffect(() => {
-    (async() => {
-      const result = await fetch("http://localhost:8080/projects")
-          .then(response => response.json())
-      setProjects(result.projects);
-      setTotal(result.projects.length);
-    })()
-  }, []);
+  const {data, isLoading } = getApi<Array<ProjectData>>("http://localhost:8080/projects");
 
   const getProjectData = (page: number) => {
-    // const data = projectsTempData.slice((page - 1) * 10, page * 10);
-    // setProjects(data);
-    // setTotal(projectsTempData.length);
+    // TODO: ページネーション追加
+    setTotal(1);
   };
 
   return (
     <>
-      {projects && (
+      {data && (
         <ProjectList
-          projects={projects}
+          projects={data}
           total={total}
           getProjectData={getProjectData}
         />
