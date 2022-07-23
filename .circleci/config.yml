@@ -42,7 +42,6 @@ jobs:
       docker_layer_caching: true
     steps:
       - checkout
-      - setup_aws_cli
       - install_openjdk
       - run:
           name: Prepare
