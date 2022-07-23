@@ -69,10 +69,10 @@ jobs:
       - checkout
       - run:
         name: Run SPA tests
-          command: |
-            cd spa;
-            npm install;
-            npm run test:ci;
+        command: |
+          cd spa;
+          npm install;
+          npm run test:ci;
       - store_test_results:
           path: reports
       - store_artifacts:
