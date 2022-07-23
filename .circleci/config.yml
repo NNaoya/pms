@@ -43,7 +43,6 @@ jobs:
     steps:
       - checkout
       - install_openjdk
-      - run: cd api
       - run:
           name: Run API tests
           command: |
@@ -68,9 +67,12 @@ jobs:
       - image: circleci/node:12
     steps:
       - checkout
-      - run: cd spa
-      - run: npm install
-      - run: npm run test:ci
+      - run:
+        name: Run SPA tests
+          command: |
+            cd spa;
+            npm install;
+            npm run test:ci;
       - store_test_results:
           path: reports
       - store_artifacts:
